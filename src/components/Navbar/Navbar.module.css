@@ -10,13 +10,9 @@
   align-items: center;
 }
 
-.header a {
-  color: var(--primary-color-800);
-}
-
 .logo {
   height: 50px;
-  margin: auto auto auto 0;
+  width: 50px;
   fill: var(--secondary-color-400);
 }
 
@@ -24,7 +20,7 @@
   fill: var(--primary-color-800);
 }
 
-.mainNav {
+.mainNav.visible {
   display: flex;
 }
 
@@ -53,7 +49,15 @@
   display: none;
 }
 
-.visible {
+.projectsTag span {
+  padding-right: 8px;
+}
+
+.projectsTag img {
+  vertical-align: text-bottom;
+}
+
+.projectsList {
   display: block;
   position: absolute;
   right: 0;
@@ -63,14 +67,14 @@
   background-color: #fff;
 }
 
-.projects ul li {
+.projectsList li {
   display: flex;
   padding: 8px 16px;
   justify-content: flex-end;
   gap: 10px;
 }
 
-.projects ul li:hover {
+.projectsList li:hover {
   background: #eee;
 }
 
@@ -89,4 +93,96 @@
 
 .mainNav li.resume a span {
   padding: 0 16px;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.separator {
+  display: none;
+}
+
+@media screen and (max-width: 600px) and (orientation: portrait) {
+  .header {
+    height: 50px;
+    padding: 0px 32px;
+  }
+
+  .header > * {
+    padding-top: 4px;
+  }
+
+  .mobileMenu {
+    display: inline;
+    background: none;
+    border: none;
+  }
+
+  .separator {
+    display: block;
+    border: 1px solid var(--grey-200);
+    width: 100%;
+    margin: auto;
+  }
+
+  .logo {
+    height: 32px;
+    width: 32px;
+  }
+
+  .mainNav.visible {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    text-align: right;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-color: var(--primary-color-50);
+    padding: 40px 48px 12px;
+  }
+
+  .mainNav > li {
+    padding: 12px 0;
+    font-size: var(--16px);
+  }
+
+  .projects {
+    position: static;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .projectsTag {
+    padding: 24px 0;
+  }
+
+  .projectsTag span {
+    font-size: var(--16px);
+  }
+
+  .projectsList {
+    display: inline;
+    position: static;
+    text-align: right;
+    background-color: var(--primary-color-50);
+  }
+
+  .projectsList li {
+    font-size: var(--14px);
+    padding: 12px 8px;
+  }
+
+  .projectsList a {
+    color: var(--grey-700);
+  }
+
+  .resume {
+    position: absolute;
+    bottom: 12px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

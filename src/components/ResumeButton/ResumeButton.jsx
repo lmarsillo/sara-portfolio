@@ -1,14 +1,14 @@
 import resume from '../../assets/sara-nenada-resume.pdf';
 import styles from './ResumeButton.module.css';
 
-const ResumeButton = () => {
+const ResumeButton = ({ className }) => {
   const selected = (e) => {
     e.currentTarget.classList.add(styles.buttonSelected);
   };
 
   return (
     <a
-      className={styles.button}
+      className={`${styles.button} ${className}`}
       onClick={selected}
       href={resume}
       download='Sara_Nenada_Resume.pdf'
