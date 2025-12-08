@@ -1,0 +1,40 @@
+.button {
+  width: 252px;
+  height: 46px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-align: center;
+
+  font-size: var(--20px);
+  font-weight: 700;
+  line-height: 150%;
+  z-index: 2;
+  background: var(--secondary-color-400);
+  color: #fff;
+  border: none;
+  fill: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 3px 3px #ddd;
+  background: var(--secondary-color-600);
+  color: #fff;
+  fill: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button > svg,
+.button > span {
+  margin-left: auto;
+}
+
+.buttonSelected {
+  background: var(--secondary-color-800);
+  color: #fff;
+  fill: #fff;
+}

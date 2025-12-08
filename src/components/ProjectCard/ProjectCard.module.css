@@ -1,0 +1,49 @@
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 3px 1.4px 0 rgba(89, 90, 91, 0.1);
+  width: 342px;
+  padding: 16px 32px 0px;
+  border-bottom: solid 16px #fff;
+  transition: all 0.1s linear;
+  margin-bottom: 1rem;
+}
+
+.projectCard:hover {
+  background: #f5f5f5;
+  border-bottom: solid 16px var(--secondary-color-700);
+  transition: all 0.1s linear;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.projectCard img {
+  height: 139px;
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.projectCard h3 {
+  color: var(--secondary-color-700);
+}
+
+.projectCard p {
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--primary-color-600);
+  font-size: var(--12px);
+  font-style: italic;
+  line-height: 120%;
+}
+
+.description {
+  color: #343839;
+}
+
+@media screen and (max-width: 800px) {
+  .projectCard {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+.description {
+  margin-bottom: 1.5rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.bullet {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 2rem;
+}
+
+.bulletText h4 {
+  color: var(--primary-color-800);
+  margin-bottom: 1rem;
+}
+
+.idSubIcon {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

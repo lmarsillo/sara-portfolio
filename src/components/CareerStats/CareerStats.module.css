@@ -1,0 +1,28 @@
+.careerStatsContainer {
+  background-color: var(--primary-color-600);
+  color: #fff;
+}
+
+.stats {
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  width: 137px;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .stats {
+    padding: 24px;
+    row-gap: 24px;
+    justify-content: space-around;
+  }
+
+  .statItem {
+    width: 110px;
+  }
+}

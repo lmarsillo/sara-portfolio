@@ -1,0 +1,75 @@
+.images {
+  display: grid;
+  grid-template: auto auto / 30% 23% 22% 25%;
+  gap: 16px;
+  overflow: clip;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.spanRows {
+  grid-row: 1 / span 2;
+}
+.item1 {
+}
+.item2 {
+  grid-column: 2;
+}
+.item3 {
+  grid-column: 2;
+}
+.item4 {
+  grid-column: 3;
+}
+
+.item5 {
+  grid-column: 4;
+}
+
+.LightBox:hover {
+  cursor: pointer;
+}
+
+.LightBox {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.LightBoxImage {
+  z-index: 11;
+  object-fit: contain;
+  max-height: 90vh;
+  max-width: 80vw;
+  margin: auto;
+  background-color: #fff;
+}
+
+.button {
+  background: none;
+  border: none;
+}
+
+.arrow {
+  height: 4rem;
+  width: 4rem;
+  color: #fff;
+  padding: 0 16px;
+}

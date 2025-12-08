@@ -1,0 +1,33 @@
+.imageCard {
+  align-self: flex-end;
+  max-width: 33%;
+  width: auto;
+  height: auto;
+}
+
+.imageCard:hover,
+.LightBox:hover {
+  cursor: pointer;
+}
+
+.LightBox {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.LightBoxImage {
+  z-index: 11;
+  object-fit: contain;
+  max-width: 80vw;
+  margin: auto;
+  background-color: #fff;
+}

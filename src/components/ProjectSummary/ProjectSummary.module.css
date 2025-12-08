@@ -1,0 +1,26 @@
+.projectSummaryContainer {
+  display: flex;
+  gap: 112px;
+  align-items: center;
+}
+
+.projectSummaryPhoto {
+  max-width: 35%;
+}
+
+.title {
+  color: var(--secondary-color-700);
+}
+
+.info > p {
+  margin-bottom: 3rem;
+}
+
+.toolsRoleBoxes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info > p a {
+  text-decoration: underline;
+}

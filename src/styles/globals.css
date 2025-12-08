@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga' off, 'clig' off;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a {
+  color: var(--primary-color-700);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 147%;
+}
+
+h4,
+h5 {
+  font-weight: 700;
+  line-height: 150%;
+}
+
+h1 {
+  font-size: var(--40px);
+}
+
+h2 {
+  font-size: var(--32px);
+}
+
+h3 {
+  font-size: var(--24px);
+}
+
+h4 {
+  font-size: var(--20px);
+}
+
+h5 {
+  font-size: var(--16px);
+}
+
+p {
+  font-size: var(--14px);
+  line-height: 140%;
+}
+
+p em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.mb-80 {
+  margin: 0 auto 5rem;
+}
+
+.mb-16 {
+  margin: 0 auto 1rem;
+}
+
+.mb-32 {
+  margin: 0 auto 2rem;
+}
+
+.px-48 {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.py-80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.headerLine {
+  width: 125px;
+  border-top: 2px solid var(--primary-color-300);
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}

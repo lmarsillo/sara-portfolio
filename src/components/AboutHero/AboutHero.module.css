@@ -1,0 +1,74 @@
+.hero {
+  background: linear-gradient(
+    1deg,
+    var(--primary-color-50) 1.06%,
+    #e5dbf4 99.03%
+  );
+}
+
+.heroContainer {
+  display: flex;
+  gap: 96px;
+  padding: 80px 48px 32px;
+  align-items: center;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: end;
+  animation: fadeInRight 1s linear;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+}
+
+.header {
+  margin-bottom: 2rem;
+  color: var(--secondary-color-800);
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.heroImage {
+  max-width: 35%;
+  animation: fadeInLeft 1s linear;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+}
+
+.connects {
+  display: flex;
+  flex-direction: column;
+}
+
+.connectItem {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.connectText {
+  padding-left: 16px;
+  color: #000;
+  font-size: var(--14px);
+}

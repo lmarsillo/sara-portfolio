@@ -1,0 +1,14 @@
+.photoParagraph {
+  margin-bottom: 2rem;
+}
+
+.text > :first-child {
+  color: var(--secondary-color-800);
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
