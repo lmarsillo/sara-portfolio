@@ -1,29 +1,37 @@
 import resume from '../../assets/sara-nenada-resume.pdf';
-// import logo from '../../assets/images/logo.svg';
 import down_arrow from '../../assets/icons/arrow-drop-down-rounded.svg';
 import download from '../../assets/icons/download-rounded.svg';
+import img_menu from '../../assets/icons/hamburger-menu.svg';
+import img_cross from '../../assets/icons/cross.svg';
+import ResumeButton from '../ResumeButton/ResumeButton';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 
+const MOBILE_WIDTH = 600;
+
 const Navbar = () => {
-  const [isProjectsShown, setProjectsShow] = useState(false);
+  const [isProjectsShown, setProjectsShown] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setMobile] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  const makeVisible = () => {
-    setProjectsShow(true);
-  };
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  const makeHidden = () => {
-    setProjectsShow(false);
-  };
+  useEffect(() => {
+    screenWidth <= MOBILE_WIDTH ? setMobile(true) : setMobile(false);
+  }, [screenWidth]);
 
-  const toggleProjectsList = () => {
-    if (!isProjectsShown) {
-      makeVisible();
-    } else {
-      makeHidden();
-    }
-  };
+  const toggleProjectsList = () => setProjectsShown(!isProjectsShown);
+
+  const toggleMenu = () => setMenuOpen(!isMenuOpen);
+
+  const showMainNav =
+    (isMobile && isMenuOpen) || !isMobile ? styles.visible : styles.hidden;
 
   return (
     <>
@@ -42,58 +50,108 @@ const Navbar = () => {
         </Link>
 
         <nav className={styles.navbar}>
-          <ul className={styles.mainNav}>
+          <button className={styles.mobileMenu} onClick={toggleMenu}>
+            {!isMenuOpen ? (
+              <img src={img_menu} alt='Touch to view page navigation menu.' />
+            ) : (
+              <img src={img_cross} alt='Touch to close page navigation menu.' />
+            )}
+          </button>
+          <ul className={`${styles.mainNav} ${showMainNav}`}>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/' onClick={() => setMenuOpen(false)}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link to='/about-me'>About Me</Link>
+              <Link to='/about-me' onClick={() => setMenuOpen(false)}>
+                About Me
+              </Link>
             </li>
+            <hr className={styles.separator} />
             <li
               className={styles.projects}
               onClick={toggleProjectsList}
-              onMouseEnter={makeVisible}
-              onMouseLeave={makeHidden}
+              onMouseEnter={toggleProjectsList}
+              onMouseLeave={toggleProjectsList}
             >
-              <span>Projects</span>
-              <img
-                src={down_arrow}
-                alt='Click or Hover to Show Projects'
-                className={isProjectsShown ? styles.expanded : styles.collapsed}
-              />
-              <ul className={isProjectsShown ? styles.visible : styles.hidden}>
+              <div className={styles.projectsTag}>
+                <span>Projects</span>
+                <img
+                  src={down_arrow}
+                  alt='Click or Hover to Show Projects'
+                  className={
+                    isProjectsShown ? styles.expanded : styles.collapsed
+                  }
+                />
+              </div>
+              <ul
+                className={
+                  isMobile || isProjectsShown
+                    ? styles.projectsList
+                    : styles.hidden
+                }
+              >
                 <li>
-                  <Link to='/project-elms-learners'>eLMS for Learners</Link>
+                  <Link
+                    to='/project-elms-learners'
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    eLMS for Learners
+                  </Link>
                 </li>
                 <li>
-                  <Link to='/project-elms-admins'>eLMS for Admins</Link>
+                  <Link
+                    to='/project-elms-admins'
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    eLMS for Admins
+                  </Link>
                 </li>
                 <li>
-                  <Link to='/project-virtual-visit'>
+                  <Link
+                    to='/project-virtual-visit'
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Virtual Visit Redesign
                   </Link>
                 </li>
                 <li>
-                  <Link to='/project-recipe-manage-app'>
+                  <Link
+                    to='/project-recipe-manage-app'
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Recipe Manager App
                   </Link>
                 </li>
                 <li>
-                  <Link to='/project-grocery-delivery-app'>
+                  <Link
+                    to='/project-grocery-delivery-app'
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Grocery Delivery App
                   </Link>
                 </li>
                 <li>
-                  <Link to='/project-portfolio'>Portfolio Redesign</Link>
+                  <Link
+                    to='/project-portfolio'
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Portfolio Redesign
+                  </Link>
                 </li>
               </ul>
             </li>
-            <li className={styles.resume}>
-              <a href={resume} download='Sara_Nenada_Resume.pdf'>
-                <span>Resume</span>
-                <img src={download} alt='Download Resume' />
-              </a>
-            </li>
+            {isMobile ? (
+              <ResumeButton className={styles.resume} />
+            ) : (
+              <li className={styles.resume}>
+                <a href={resume} download='Sara_Nenada_Resume.pdf'>
+                  <span>Resume</span>
+                  <img src={download} alt='Download Resume' />
+                </a>
+              </li>
+            )}
           </ul>
         </nav>
       </header>

@@ -2,6 +2,7 @@
   display: flex;
   gap: 112px;
   align-items: center;
+  padding: 80px 48px;
 }
 
 .projectSummaryPhoto {
@@ -9,7 +10,7 @@
 }
 
 .title {
-  color: var(--secondary-color-700);
+  color: var(--secondary-color-800);
 }
 
 .info > p {
@@ -19,8 +20,43 @@
 .toolsRoleBoxes {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .info > p a {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .projectSummaryContainer {
+    flex-flow: column-reverse;
+    gap: 40px;
+    padding: 60px 32px 30px;
+  }
+
+  .projectSummaryPhoto {
+    max-width: 100%;
+    max-height: 40vh;
+  }
+
+  .toolsRoleBoxes {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1080px) {
+  .projectSummaryContainer {
+    gap: 40px;
+  }
+
+  .info {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .projectSummaryContainer {
+    gap: 40px;
+    padding: 60px 32px 30px;
+  }
 }

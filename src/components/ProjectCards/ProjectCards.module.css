@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 80px 48px;
 }
 
 .title {
@@ -16,4 +17,10 @@
   gap: 16px 39px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .projectsContainer {
+    padding: 80px 32px;
+  }
 }

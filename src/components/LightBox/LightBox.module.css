@@ -31,3 +31,13 @@
   margin: auto;
   background-color: #fff;
 }
+
+@media screen and (max-width: 600px) {
+  .imageCard {
+    max-width: 100%;
+  }
+
+  .LightBox {
+    flex-direction: column;
+  }
+}

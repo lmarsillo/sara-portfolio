@@ -5,7 +5,7 @@ const Challenge = ({ children }) => {
   return (
     <section className={styles.challenge}>
       <FadeInElement>
-        <div className={`${styles.challengeContainer} container mb-80`}>
+        <div className={`${styles.challengeContainer} container`}>
           <h2 className={styles.challengeHeader}>The Challenge</h2>
           {children}
         </div>

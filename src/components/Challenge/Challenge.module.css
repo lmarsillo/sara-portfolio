@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   padding: 32px 48px;
+  margin: 0 auto 5rem;
 }
 
 .challengeContainer p {
@@ -19,4 +20,11 @@
 
 .challengeHeader {
   color: var(--secondary-color-700);
+}
+
+@media screen and (max-width: 600px) {
+  .challengeContainer {
+    margin: 0 auto 2rem;
+    padding: 32px;
+  }
 }
