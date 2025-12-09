@@ -73,3 +73,18 @@
   color: #fff;
   padding: 0 16px;
 }
+
+@media screen and (max-width: 600px) {
+  .images {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .LightBox {
+    flex-direction: column;
+  }
+
+  .arrow {
+    padding: 16px 16px;
+  }
+}

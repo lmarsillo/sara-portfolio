@@ -10,7 +10,7 @@ import styles from './ProjectCards.module.css';
 const ProjectCards = () => {
   return (
     <section aria-labelledby='featured-work' className={styles.projects}>
-      <div className={`${styles.projectsContainer} container px-48 py-80`}>
+      <div className={`${styles.projectsContainer} container`}>
         <h2 id='featured-work' className={styles.title}>
           Featured Work
         </h2>

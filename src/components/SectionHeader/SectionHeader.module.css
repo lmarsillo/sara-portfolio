@@ -1,4 +1,18 @@
+.sectionContainer {
+  padding-left: 48px;
+  padding-right: 48px;
+  margin: 0 auto 5rem;
+}
+
 .header {
   margin-bottom: 0.2rem;
   color: var(--secondary-color-700);
+}
+
+@media screen and (max-width: 600px) {
+  .sectionContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin: 0 auto 2rem;
+  }
 }

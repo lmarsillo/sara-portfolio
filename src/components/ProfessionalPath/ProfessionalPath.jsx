@@ -23,10 +23,14 @@ const ProfessionalPath = () => {
         user-centered solutions.
       </p>
       <div className={styles.content}>
-        <img src={img_pencil} alt='' />
+        <img className={styles.pencil} src={img_pencil} alt='' />
         <div className={styles.bullets}>
           <article className={styles.bullet}>
-            <Icon image={img_instructional_design} alt='' />
+            <Icon
+              className={styles.icon}
+              image={img_instructional_design}
+              alt=''
+            />
             <div className={styles.bulletText}>
               <h4>Instructional Design</h4>
               <p>
@@ -40,10 +44,10 @@ const ProfessionalPath = () => {
               </p>
               <div className={styles.idSubIcon}>
                 <Icon
+                  className={styles.icon}
                   image={img_instructional_design_sub}
                   alt=''
                   wh='28px'
-                  pd='7px'
                 />
                 <p>
                   Since I started, we've seen a <em>10% increase </em> in users
@@ -54,7 +58,7 @@ const ProfessionalPath = () => {
             </div>
           </article>
           <article className={styles.bullet}>
-            <Icon image={img_ux_design} alt='' />
+            <Icon className={styles.icon} image={img_ux_design} alt='' />
             <div className={styles.bulletText}>
               <h4>UX Design</h4>
               <p>
@@ -69,7 +73,7 @@ const ProfessionalPath = () => {
             </div>
           </article>
           <article className={styles.bullet}>
-            <Icon image={img_data_analytics} alt='' />
+            <Icon className={styles.icon} image={img_data_analytics} alt='' />
             <div className={styles.bulletText}>
               <h4>Data Analysis</h4>
               <p>

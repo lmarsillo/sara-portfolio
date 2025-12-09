@@ -2,3 +2,12 @@
   display: flex;
   gap: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .iconBullet {
+    flex-direction: column;
+  }
+  .icon {
+    align-self: flex-start;
+  }
+}

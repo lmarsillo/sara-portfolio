@@ -6,9 +6,7 @@ const ProjectSummary = ({ title, toolsRoleBoxes, image, children }) => {
   return (
     <section className={styles.projectSummary}>
       <FadeInElement>
-        <div
-          className={`${styles.projectSummaryContainer} container py-80 px-48`}
-        >
+        <div className={`${styles.projectSummaryContainer} container`}>
           <div className={styles.info}>
             <h1 className={styles.title}>{title}</h1>
             {children}

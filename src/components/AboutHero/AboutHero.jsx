@@ -6,7 +6,7 @@ import styles from './AboutHero.module.css';
 const Hero = () => {
   return (
     <section aria-labelledby='about-hero' className={styles.hero}>
-      <div className={`${styles.heroContainer} container mb-80`}>
+      <div className={`${styles.heroContainer} container`}>
         <div className={styles.textContainer}>
           <h2 id='about-hero' className={styles.header}>
             Making Complex Feel Simple

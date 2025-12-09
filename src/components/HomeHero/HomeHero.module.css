@@ -19,6 +19,7 @@
   align-self: center;
   max-width: 45%;
   animation: fadeInRight 1s linear;
+  margin-bottom: 2rem;
 }
 
 @keyframes fadeInRight {
@@ -65,10 +66,15 @@
   margin-bottom: 3rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .heroContainer {
     flex-direction: column;
     height: auto;
+    padding: 0 30px;
+  }
+
+  .imgHero {
+    align-self: center;
   }
 
   .textContent {
@@ -77,5 +83,17 @@
 
   .imgHero {
     max-width: 100%;
+  }
+
+  .header {
+    margin-top: 3rem;
+    font-size: var(--64px);
+    line-height: 112%;
+  }
+}
+
+@media screen and (max-width: 1280px) and (orientation: landscape) {
+  .heroContainer {
+    height: auto;
   }
 }

@@ -12,3 +12,9 @@
   font-size: var(--12px);
   line-height: 120%;
 }
+
+@media screen and (max-width: 600px) {
+  .footer {
+    padding: 24px 32px;
+  }
+}

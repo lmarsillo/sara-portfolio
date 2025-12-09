@@ -1,5 +1,4 @@
 import linkedin from '../../assets/icons/linkedin.svg';
-import instagram from '../../assets/icons/instagram.svg';
 import styles from './Footer.module.css';
 
 const Footer = () => {
