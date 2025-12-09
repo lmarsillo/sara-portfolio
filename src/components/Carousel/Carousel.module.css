@@ -95,6 +95,12 @@
 }
 
 .arrow:hover {
-  transition: color 0.2s fadease-in-oute;
+  transition: color 0.2s ease-in-oute;
   color: var(--grey-700);
+}
+
+@media screen and (pointer: coarse), screen and (max-width: 800px) {
+  .arrow {
+    display: none;
+  }
 }

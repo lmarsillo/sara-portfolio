@@ -9,28 +9,59 @@ const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
 const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
 
+// based on max-width (1200) minus section padding (48*2) and container padding (16*2)
+const BASE_WIDTH = 1070;
+const ARROW_WIDTH = 64;
+const BASE_ITEM_WIDTH = BASE_WIDTH - ARROW_WIDTH * 2;
+const BASE_ITEM_OFFSET = BASE_ITEM_WIDTH + GAP;
+
 export default function Carousel({
   items,
   autoplay = true,
-  autoplayDelay = 5000,
+  autoplayDelay = 4000,
   pauseOnHover = true,
   loop = true,
 }) {
-  const root = document.querySelector(':root');
-  const baseWidth = parseInt(
-    getComputedStyle(root).getPropertyValue('--max-width')
-  );
-  const containerPadding = 16 + 96;
-  const itemWidth = baseWidth - containerPadding * 2 - 96;
-  const trackItemOffset = itemWidth + GAP;
-
   const carouselItems = loop ? [...items, items[0]] : items;
   const [currentIndex, setCurrentIndex] = useState(0);
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
+  const [containerWidth, setContainerWidth] = useState(BASE_WIDTH);
+  const [itemWidth, setItemWidth] = useState(BASE_ITEM_WIDTH);
+  const [trackItemOffset, setItemOffset] = useState(BASE_ITEM_OFFSET);
+
   const containerRef = useRef(null);
+
+  const isTouchEnabled = () => {
+    return (
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    );
+  };
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const observer = new ResizeObserver((entries) => {
+        for (let entry of entries) {
+          setContainerWidth(entry.contentRect.width);
+          isTouchEnabled() || containerWidth <= 670 // width of container when viewport width is 800
+            ? setItemWidth(containerWidth)
+            : setItemWidth(containerWidth - ARROW_WIDTH * 2);
+          setItemOffset(itemWidth + GAP);
+        }
+      });
+
+      observer.observe(containerRef.current);
+
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [containerWidth, itemWidth, trackItemOffset]);
+
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
