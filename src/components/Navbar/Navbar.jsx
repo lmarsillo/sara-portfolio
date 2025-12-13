@@ -16,6 +16,14 @@ const Navbar = () => {
   const [isMobile, setMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  const isTouchEnabled = () => {
+    return (
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    );
+  };
+
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -29,6 +37,11 @@ const Navbar = () => {
   const toggleProjectsList = () => setProjectsShown(!isProjectsShown);
 
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
+
+  const closeProjects = () => {
+    setMenuOpen(false);
+    setProjectsShown(false);
+  };
 
   const showMainNav =
     (isMobile && isMenuOpen) || !isMobile ? styles.visible : styles.hidden;
@@ -59,21 +72,24 @@ const Navbar = () => {
           </button>
           <ul className={`${styles.mainNav} ${showMainNav}`}>
             <li>
-              <Link to='/' onClick={() => setMenuOpen(false)}>
+              <Link to='/' onClick={isTouchEnabled() ? closeProjects : null}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to='/about-me' onClick={() => setMenuOpen(false)}>
+              <Link
+                to='/about-me'
+                onClick={isTouchEnabled() ? closeProjects : null}
+              >
                 About Me
               </Link>
             </li>
             <hr className={styles.separator} />
             <li
               className={styles.projects}
-              onClick={toggleProjectsList}
-              onMouseEnter={toggleProjectsList}
-              onMouseLeave={toggleProjectsList}
+              onClick={isTouchEnabled() ? toggleProjectsList : null}
+              onMouseEnter={!isTouchEnabled() ? toggleProjectsList : null}
+              onMouseLeave={!isTouchEnabled() ? toggleProjectsList : null}
             >
               <div className={styles.projectsTag}>
                 <span>Projects</span>
@@ -95,7 +111,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/project-elms-learners'
-                    onClick={() => setMenuOpen(false)}
+                    onClick={isTouchEnabled() ? closeProjects : null}
                   >
                     eLMS for Learners
                   </Link>
@@ -103,7 +119,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/project-elms-admins'
-                    onClick={() => setMenuOpen(false)}
+                    onClick={isTouchEnabled() ? closeProjects : null}
                   >
                     eLMS for Admins
                   </Link>
@@ -111,7 +127,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/project-virtual-visit'
-                    onClick={() => setMenuOpen(false)}
+                    onClick={isTouchEnabled() ? closeProjects : null}
                   >
                     Virtual Visit Redesign
                   </Link>
@@ -119,7 +135,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/project-recipe-manage-app'
-                    onClick={() => setMenuOpen(false)}
+                    onClick={isTouchEnabled() ? closeProjects : null}
                   >
                     Recipe Manager App
                   </Link>
@@ -127,7 +143,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/project-grocery-delivery-app'
-                    onClick={() => setMenuOpen(false)}
+                    onClick={isTouchEnabled() ? closeProjects : null}
                   >
                     Grocery Delivery App
                   </Link>
@@ -135,7 +151,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/project-portfolio'
-                    onClick={() => setMenuOpen(false)}
+                    onClick={isTouchEnabled() ? closeProjects : null}
                   >
                     Portfolio Redesign
                   </Link>
